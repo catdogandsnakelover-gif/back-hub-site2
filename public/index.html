@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Back Hub</title>
+<link rel="stylesheet" href="/styles.css" />
+</head>
+<body>
+<canvas id="stars"></canvas>
+<div class="nebula"></div>
+
+<main class="wrap">
+  <header class="brand">
+    <h1>BACK&nbsp;HUB</h1>
+    <p class="tagline">a portal among the stars</p>
+  </header>
+
+  <!-- KEY GATE -->
+  <section id="view-gate" class="panel view">
+    <h2>Portal Locked</h2>
+    <p class="muted">Enter your access key to unlock the hub directory.</p>
+    <form id="gate-form">
+      <input id="gate-key" type="text" placeholder="XXXX-XXXX-XXXX-XXXX" autocomplete="off" spellcheck="false" />
+      <button type="submit" class="btn primary">Unlock Portal</button>
+    </form>
+    <p id="gate-error" class="error"></p>
+    <button id="goto-admin" class="btn ghost admin-btn">Admin</button>
+  </section>
+
+  <!-- HUB DIRECTORY -->
+  <section id="view-hubs" class="view" hidden>
+    <h2>Hub Directory</h2>
+    <p class="muted">Choose a destination, traveler.</p>
+    <div id="hub-list" class="hub-grid"></div>
+    <button id="lock-btn" class="btn ghost">Lock portal</button>
+  </section>
+
+  <!-- ADMIN LOGIN -->
+  <section id="view-admin-login" class="panel view" hidden>
+    <h2>Admin Access</h2>
+    <p class="muted">Enter the owner email to open the console.</p>
+    <form id="admin-login-form">
+      <input id="admin-email" type="email" placeholder="you@example.com" autocomplete="email" />
+      <button type="submit" class="btn primary">Enter Console</button>
+    </form>
+    <p id="admin-login-error" class="error"></p>
+    <button class="btn ghost back-btn" data-back>Back</button>
+  </section>
+
+  <!-- OWNER CONSOLE -->
+  <section id="view-console" class="view" hidden>
+    <div class="console-head">
+      <h2>Owner Console</h2>
+      <button id="admin-logout" class="btn ghost small">Log out</button>
+    </div>
+
+    <div class="panel">
+      <h3>01 · Key Forge</h3>
+      <form id="key-form" class="row">
+        <label>Allowed uses
+          <input id="key-uses" type="number" min="1" max="10000" value="1" />
+        </label>
+        <button type="submit" class="btn primary">Generate key</button>
+      </form>
+      <p id="new-key" class="new-key" hidden></p>
+      <div id="key-list" class="list"></div>
+    </div>
+
+    <div class="panel">
+      <h3>02 · Shared Hubs</h3>
+      <form id="hub-form" class="row">
+        <input id="hub-name" type="text" placeholder="Hub name" maxlength="120" />
+        <input id="hub-url" type="url" placeholder="https://example.com" maxlength="2000" />
+        <button type="submit" class="btn primary">Add hub</button>
+      </form>
+      <p id="hub-form-error" class="error"></p>
+      <div id="admin-hub-list" class="list"></div>
+    </div>
+
+    <button class="btn ghost back-btn" data-back>Back to gate</button>
+  </section>
+</main>
+
+<script src="/app.js"></script>
+</body>
+</html>
